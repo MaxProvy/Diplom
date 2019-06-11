@@ -70,15 +70,13 @@
                 <h4>Интересное</h4>
                 <div class="article-list-sm">
                     <?php
-                    $sql = "SELECT `id`,`name`,`dis` FROM `article` ORDER BY `id` DESC LIMIT 3";
+                    $sql = "SELECT `id`,`name`,`dis` FROM `article` WHERE `name`<>'' ORDER BY `id` DESC LIMIT 3";
                     $result = $db->query($sql);
                     while ($row = mysqli_fetch_assoc($result)) {
-                        if ($row['name'] != '') {
                             $id = $row['id'];
                             $name = $row['name'];
                             $des = $row['dis'];
                             echo "<div class='article-item-sm'><a href='?article=$id'>$name</a>$des</div>";
-                        }
                     }
                     ?>
                 </div>
