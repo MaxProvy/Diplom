@@ -1,8 +1,8 @@
 ### Dir ###
 
 .idea
-img/articles/
-img/pages/
+img/articles
+img/pages
 
 ### Pics ###
 .png
