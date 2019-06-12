@@ -16,13 +16,17 @@
 <body>
 <div class="preheader">
     <!--    <p>Версия для слабовидящих</p>-->
-        <a id="specialButton" href="#"><p>Версия для слабовидящих</p></a>
-<!--    <a id="specialButton" href="#"><img src="https://lidrekon.ru/images/special.png" alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"-->
-<!--                                        title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"/></a>-->
-    <div class="poisk">
-        <input type="text">
-        <button>Найти</button>
-    </div>
+    <a id="specialButton" href="#"><p>Версия для слабовидящих</p></a>
+    <!--    <a id="specialButton" href="#"><img src="https://lidrekon.ru/images/special.png" alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"-->
+    <!--                                        title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"/></a>-->
+    <!--    <div class="poisk">-->
+    <!--        <input type="text">-->
+    <!--        <button>Найти</button>-->
+    <!--    </div>-->
+    <form class="poisk" method="get" action="/">
+        <input type="search" name="search" minlength="3" placeholder="Поиск">
+        <input type="submit" value="Найти">
+    </form>
 </div>
 <div class="titul">
     <a href="/">МБОУ<br>"Лицей "ПОЛИТЭК"<br>г.

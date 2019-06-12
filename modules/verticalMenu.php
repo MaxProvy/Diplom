@@ -25,7 +25,7 @@
             if (!empty($item['href'])) {
                 echo "<li><a href='$href'>$menuname</a></li>";
             } else {
-                echo "<li><a href='$href'>$menuname</a><ul>";
+                echo "<li><a>$menuname</a><ul>";
 
                 foreach ($subitems as $subitem) {
 
@@ -55,7 +55,8 @@
         <img src="http://politek1.ucoz.ru/new_style/ais.png" alt="">
     </a>
     <a href="http://rosatomschool.ru">
-        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=192x1024:format=png/path/s99b67e6035b6b384/image/i19f4556f6f78129e/version/1475411051/image.png" alt="">
+        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=192x1024:format=png/path/s99b67e6035b6b384/image/i19f4556f6f78129e/version/1475411051/image.png"
+             alt="">
     </a>
     <a href="http://teacher19.ru/itogi-ii-vserossiieskogo-konkursa-obrazovatelnix-saietov-po-versii-imop-evolyuciya.html">
         <img src="http://teacher19.ru/docs/2winall.png" alt="">

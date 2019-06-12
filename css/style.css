@@ -28,6 +28,48 @@ body {
 
 .preheader > .poisk {
     margin-right: 10px;
+    display: flex;
+}
+
+a#specialButton {
+    margin-left: 1%;
+    color: #000;
+    text-decoration: none;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+a#specialButton:hover {
+    background: #d4d4d4;
+}
+
+input[type="search"] {
+    padding: 2px;
+    outline-style: none;
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+    border-right: none;
+    border-left: 1px solid #a0a0a0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 2px;
+    border-top: 1px solid #a0a0a0;
+    border-right: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+    border-left: none;
+    background: #fff;
+    outline: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background: #d4d4d4;
 }
 
 /*endregion*/
@@ -132,7 +174,7 @@ header {
     align-items: center;
     cursor: default;
     box-shadow: inset 0 0 10px 0px #964a4a;
-    z-index: 0;
+    z-index: 1;
 }
 
 /*header a{*/
@@ -388,28 +430,28 @@ span.numart, span.methart {
 }
 
 .image {
-    margin:30px;
-    float:left;
-    cursor:pointer;
-    max-height:100px;
+    margin: 30px;
+    float: left;
+    cursor: pointer;
+    max-height: 100px;
 }
 
 .popup {
     position: fixed;
     height: 100%;
-    width:100%;
+    width: 100%;
     top: 0;
-    left:0;
-    display:none;
-    text-align:center;
+    left: 0;
+    display: none;
+    text-align: center;
 }
 
 .popup_bg {
-    background:rgba(0,0,0,0.4);
-    position:absolute;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
     z-index: 5;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -417,7 +459,7 @@ span.numart, span.methart {
     position: relative;
     z-index: 10000;
     max-height: 94%;
-    max-width:94%;
+    max-width: 94%;
     margin: 1% 0 0 0;
 }
 
