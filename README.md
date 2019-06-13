@@ -2,7 +2,9 @@
 
 Сайт иногда работает по адресу nyss.ddns.net
 
-Надо добавить папки в img, page(s) ,article(s)
+Админка по адресу /admin
+
+Надо добавить папки в img, pages ,articles
 
 Работает в OpenServer
 
