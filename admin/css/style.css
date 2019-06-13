@@ -44,6 +44,7 @@ main {
 
 .content-block {
     width: 100%;
+    margin: 5px;
 }
 
 .pages, .main-menu, .l-menu {
@@ -74,10 +75,11 @@ main {
     margin-right: 15px;
 }
 
-input[type="text"] {
+input[type="text"],select {
     border: 1px solid #a9a9a9;
     border-radius: 10px;
     padding: 5px;
+    outline-style: none;
 }
 
 .article-name input[type="text"] {

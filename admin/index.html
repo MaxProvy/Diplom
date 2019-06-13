@@ -10,19 +10,18 @@
     <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
-
 <header>
     <p class="h-item h-articles active">Статьи</p>
     <p class="h-item h-pages">Страницы</p>
-    <!--<p class="h-item h-main-menu">Основное меню</p>-->
-    <!--<p class="h-item h-l-menu">Боковое меню</p>-->
+    <p class="h-item h-main-menu">Основное меню</p>
+    <p class="h-item h-l-menu">Боковое меню</p>
     <!--<p class="h-item h-slider">Слайдер</p>-->
     <!--<p class="h-item h-files">Файлы</p>-->
     <!--<p class="h-item h-files">Боковые ссылки</p>-->
 </header>
 <main>
     <div class="content-block articles">
-        <p class="content-block-name">Управление статьями</p>
+        <p class="content-block-name">Создание статьи</p>
         <!--<div class="local-header">-->
         <!--<p class="local-header-item add active">Создать</p>-->
         <!--<p class="local-header-item control">Управлять</p>-->
@@ -98,7 +97,45 @@
             </div>
         </div>
     </div>
-    <div class="content-block else"></div>
+    <div class="content-block main-menu">
+        <p class="content-block-name">Основое меню</p>
+        <div class="forms-create">
+            <div class="create-punkt">
+                <h3>Создать пункт</h3>
+                <section class="create-punkt-form">
+                    <p>Название пункта:</p>
+                    <input type="text" placeholder="Название">
+                    <p>Ссылка:</p>
+                    <input type="text" placeholder="Напр.:?page=2">
+                    <br>
+                    <button>Создать пункт</button>
+                </section>
+            </div>
+            <hr>
+            <div class="create-punkt-sub">
+                <h3>Создать подпункт</h3>
+                <section class="create-subpunkt-form">
+                    <select name="" id="">
+                        <!--<option value="" disabled selected>Выберите пункт</option>-->
+                        <!--<option value="">2</option>-->
+                        <!--<option value="">3</option>-->
+                        <!--<option value="">4</option>-->
+                    </select>
+                    <p>Название подпункта:</p>
+                    <input type="text" placeholder="Название">
+                    <p>Ссылка:</p>
+                    <input type="text" placeholder="Напр.:?page=2">
+                    <br>
+                    <button>Создать подпункт</button>
+                </section>
+            </div>
+        </div>
+        <div class="forms-control">
+            Управление формой
+        </div>
+    </div>
+    </div>
+    <div class="content-block l-menu"></div>
 </main>
 <script>
     // Replace the <textarea id="editor1"> with a CKEditor

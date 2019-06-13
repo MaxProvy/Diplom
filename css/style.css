@@ -397,8 +397,8 @@ article p {
 }
 
 .img > img {
-    width: 100%;
-    height: 100%;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
     object-fit: contain;
 }
 
@@ -430,10 +430,10 @@ span.numart, span.methart {
 }
 
 .image {
-    margin: 30px;
+    /* margin: 30px; */
     float: left;
     cursor: pointer;
-    max-height: 100px;
+    /* max-height: 100px; */
 }
 
 .popup {
@@ -444,6 +444,7 @@ span.numart, span.methart {
     left: 0;
     display: none;
     text-align: center;
+    z-index: 1;
 }
 
 .popup_bg {

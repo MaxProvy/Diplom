@@ -8,7 +8,9 @@ var page_ready = false;
 
 $(function () {
 
-    ArticleCreate();
+    // ArticleCreate();
+    Menu();
+    get_menu();
     $('.h-item').on('click', function () {
         $('.h-item').removeClass("active");
         $(this).addClass("active");
@@ -27,73 +29,93 @@ $(function () {
         if (classname === '.h-l-menu') {
             LMenu();
         }
-        if (classname === '.h-slider') {
-            Slider();
-        }
-        if (classname === '.h-files') {
-            FileBlock();
-        }
+        // if (classname === '.h-slider') {
+        //     Slider();
+        // }
+        // if (classname === '.h-files') {
+        //     FileBlock();
+        // }
     })
 
-    $('.articles .local-header-item').on('click', function () {
-        $('.articles .local-header-item').removeClass("active");
-        $(this).addClass("active");
-        let classname = '.' + $('.articles .active').attr('class').split(' ')[1];
-        if (classname === '.add') {
-            $('.articles .forms-create').css({"display": "block"});
-            $('.articles .forms-create').css({"display": "none"});
-        }
-        if (classname === '.control') {
-            $('.articles .forms-create').css({"display": "none"});
-            $('.articles .forms-control').css({"display": "block"});
-        }
+    $('.create-punkt-form>button').on('click', function () {
+        get_menu();
+    })
+    $('.create-punkt-form>button').on('click', function () {
 
-    });
+    })
+
+    // $('.articles .local-header-item').on('click', function () {
+    //     $('.articles .local-header-item').removeClass("active");
+    //     $(this).addClass("active");
+    //     let classname = '.' + $('.articles .active').attr('class').split(' ')[1];
+    //     if (classname === '.add') {
+    //         $('.articles .forms-create').css({"display": "block"});
+    //         $('.articles .forms-create').css({"display": "none"});
+    //     }
+    //     if (classname === '.control') {
+    //         $('.articles .forms-create').css({"display": "none"});
+    //         $('.articles .forms-control').css({"display": "block"});
+    //     }
+    //
+    // });
 });
 
 function ArticleCreate() {
     $('.content-block').css({"display": "none"});
     $('.articles').css({"display": "block"});
-    // $('.local-header-item').removeClass("active");
-    // $('.articles>.local-header>.add').addClass("active");
-    // $('.articles>.forms>div').css({"display": "none"});
-    // $('.articles>.forms>.forms-create').css({"display": "block"});
 }
 
 function PageCreate() {
     $('.content-block').css({"display": "none"});
     $('.pages').css({"display": "block"});
-    // $('.local-header-item').removeClass("active");
-    // $('.pages>.local-header>.add').addClass("active");
-    // $('.pages>.forms>div').css({"display": "none"});
-    // $('.pages>.forms>.forms-create').css({"display": "block"});
 }
 
 function Menu() {
-    $('content-block').css({"display": "none"});
-    $('.else').css({"display": "block"}).empty().append(`Здесь редактирование меню`);
+    $('.content-block').css({"display": "none"});
+    $('.main-menu').css({"display": "block"});
 }
 
 function LMenu() {
-    $('content-block').css({"display": "none"});
-    $('.else').css({"display": "block"}).empty();
-    $('.else').css({"display": "block"}).empty().append(`Здесь редактирование бок меню`);
+    $('.content-block').css({"display": "none"});
+    $('.l-menu').css({"display": "block"});
 
 }
 
-function Slider() {
-    $('content-block').css({"display": "none"});
-    $('.else').css({"display": "block"}).empty();
-    $('.else').css({"display": "block"}).empty().append(`Здесь редактирование слайдера`);
-
+function get_menu() {
+    $.ajax({
+        url: '/ajax/get_menu.php',
+        type: 'POST',
+        dataType: 'json',
+        success: (res) => {
+            // console.log(res);
+            $('.create-subpunkt-form>select').empty().append(`<option value="0" disabled selected>Выберите пункт</option>`);
+            for (let item of res) {
+                $('.create-subpunkt-form>select').append(`<option value="${item['id']}">${item['name']}</option>`);
+                // console.log(item);
+            }
+        },
+        error: () => {
+            alert('Ошибка получения меню');
+        }
+    });
 }
 
-function FileBlock() {
-    $('content-block').css({"display": "none"});
-    $('.else').css({"display": "block"}).empty();
-    $('.else').css({"display": "block"}).empty().append(`Здесь редактирование файлов`);
+//
+// function Slider() {
+//     $('content-block').css({"display": "none"});
+//     $('.else').css({"display": "block"}).empty();
+//     $('.else').css({"display": "block"}).empty().append(`Здесь редактирование слайдера`);
+//
+// }
+//
+// function FileBlock() {
+//     $('content-block').css({"display": "none"});
+//     $('.else').css({"display": "block"}).empty();
+//     $('.else').css({"display": "block"}).empty().append(`Здесь редактирование файлов`);
+//
+// }
 
-}
+//ДАЛЬШЕ СТАТЬИ
 
 var files;
 
