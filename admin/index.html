@@ -13,8 +13,8 @@
 <header>
     <p class="h-item h-articles active">Статьи</p>
     <p class="h-item h-pages">Страницы</p>
-    <p class="h-item h-main-menu">Основное меню</p>
-    <p class="h-item h-l-menu">Боковое меню</p>
+    <p class="h-item h-main-menu">Горизонтальное меню</p>
+    <p class="h-item h-l-menu">Вертикальное меню</p>
     <!--<p class="h-item h-slider">Слайдер</p>-->
     <!--<p class="h-item h-files">Файлы</p>-->
     <!--<p class="h-item h-files">Боковые ссылки</p>-->
@@ -98,35 +98,35 @@
         </div>
     </div>
     <div class="content-block main-menu">
-        <p class="content-block-name">Основое меню</p>
+        <p class="content-block-name">Горизонтальное меню</p>
         <div class="forms-create">
             <div class="create-punkt">
                 <h3>Создать пункт</h3>
                 <section class="create-punkt-form">
                     <p>Название пункта:</p>
-                    <input type="text" placeholder="Название">
+                    <input class="punkt-name" type="text" placeholder="Название" minlength="3">
                     <p>Ссылка:</p>
-                    <input type="text" placeholder="Напр.:?page=2">
+                    <input class="punkt-href" type="text" placeholder="Напр.:?page=2">
                     <br>
-                    <button>Создать пункт</button>
+                    <button class="create-punkts-btn">Создать пункт</button>
                 </section>
             </div>
             <hr>
             <div class="create-punkt-sub">
                 <h3>Создать подпункт</h3>
                 <section class="create-subpunkt-form">
-                    <select name="" id="">
+                    <select class="main-subpunkt-sub" name="">
                         <!--<option value="" disabled selected>Выберите пункт</option>-->
                         <!--<option value="">2</option>-->
                         <!--<option value="">3</option>-->
                         <!--<option value="">4</option>-->
                     </select>
                     <p>Название подпункта:</p>
-                    <input type="text" placeholder="Название">
+                    <input class="subpunkt-name" type="text" placeholder="Название">
                     <p>Ссылка:</p>
-                    <input type="text" placeholder="Напр.:?page=2">
+                    <input class="subpunkt-href" type="text" placeholder="Напр.:?page=2">
                     <br>
-                    <button>Создать подпункт</button>
+                    <button class="create-punkts-sub-btn">Создать подпункт</button>
                 </section>
             </div>
         </div>
@@ -135,7 +135,43 @@
         </div>
     </div>
     </div>
-    <div class="content-block l-menu"></div>
+    <div class="content-block l-menu">
+        <p class="content-block-name">Вертикальное меню</p>
+        <div class="forms-create">
+            <div class="create-punkt">
+                <h3>Создать пункт</h3>
+                <section class="create-punkt-form">
+                    <p>Название пункта:</p>
+                    <input class="punkt-name" type="text" placeholder="Название" minlength="3">
+                    <p>Ссылка:</p>
+                    <input class="punkt-href" type="text" placeholder="Напр.:?page=2">
+                    <br>
+                    <button class="create-punkts-btn">Создать пункт</button>
+                </section>
+            </div>
+            <hr>
+            <div class="create-punkt-sub">
+                <h3>Создать подпункт</h3>
+                <section class="create-subpunkt-form">
+                    <select class="main-subpunkt-sub" name="" id="">
+                        <!--<option value="" disabled selected>Выберите пункт</option>-->
+                        <!--<option value="">2</option>-->
+                        <!--<option value="">3</option>-->
+                        <!--<option value="">4</option>-->
+                    </select>
+                    <p>Название подпункта:</p>
+                    <input class="subpunkt-name" type="text" placeholder="Название">
+                    <p>Ссылка:</p>
+                    <input class="subpunkt-href" type="text" placeholder="Напр.:?page=2">
+                    <br>
+                    <button class="create-punkts-sub-btn">Создать подпункт</button>
+                </section>
+            </div>
+        </div>
+        <div class="forms-control">
+            Управление формой
+        </div>
+    </div>
 </main>
 <script>
     // Replace the <textarea id="editor1"> with a CKEditor
@@ -144,5 +180,6 @@
     CKEDITOR.replace('editor2');
 </script>
 <script src="js/script.js"></script>
+<script src="js/scriptlists.js"></script>
 </body>
 </html>

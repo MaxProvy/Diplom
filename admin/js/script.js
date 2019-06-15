@@ -11,6 +11,7 @@ $(function () {
     // ArticleCreate();
     Menu();
     get_menu();
+    get_lmenu();
     $('.h-item').on('click', function () {
         $('.h-item').removeClass("active");
         $(this).addClass("active");
@@ -29,35 +30,15 @@ $(function () {
         if (classname === '.h-l-menu') {
             LMenu();
         }
-        // if (classname === '.h-slider') {
-        //     Slider();
-        // }
-        // if (classname === '.h-files') {
-        //     FileBlock();
-        // }
     })
 
-    $('.create-punkt-form>button').on('click', function () {
-        get_menu();
-    })
+    // $('.create-punkt-form>button').on('click', function () {
+    //     get_menu();
+    // })
     $('.create-punkt-form>button').on('click', function () {
 
     })
 
-    // $('.articles .local-header-item').on('click', function () {
-    //     $('.articles .local-header-item').removeClass("active");
-    //     $(this).addClass("active");
-    //     let classname = '.' + $('.articles .active').attr('class').split(' ')[1];
-    //     if (classname === '.add') {
-    //         $('.articles .forms-create').css({"display": "block"});
-    //         $('.articles .forms-create').css({"display": "none"});
-    //     }
-    //     if (classname === '.control') {
-    //         $('.articles .forms-create').css({"display": "none"});
-    //         $('.articles .forms-control').css({"display": "block"});
-    //     }
-    //
-    // });
 });
 
 function ArticleCreate() {
@@ -83,14 +64,14 @@ function LMenu() {
 
 function get_menu() {
     $.ajax({
-        url: '/ajax/get_menu.php',
+        url: '/ajax/get_menu.php/?m=get',
         type: 'POST',
         dataType: 'json',
         success: (res) => {
             // console.log(res);
-            $('.create-subpunkt-form>select').empty().append(`<option value="0" disabled selected>Выберите пункт</option>`);
+            $('.main-menu .create-subpunkt-form>select').empty().append(`<option value="0" selected disabled>Выберите пункт</option>`);
             for (let item of res) {
-                $('.create-subpunkt-form>select').append(`<option value="${item['id']}">${item['name']}</option>`);
+                $('.main-menu .create-subpunkt-form>select').append(`<option value="${item['id']}">${item['name']}</option>`);
                 // console.log(item);
             }
         },
@@ -100,20 +81,117 @@ function get_menu() {
     });
 }
 
-//
-// function Slider() {
-//     $('content-block').css({"display": "none"});
-//     $('.else').css({"display": "block"}).empty();
-//     $('.else').css({"display": "block"}).empty().append(`Здесь редактирование слайдера`);
-//
-// }
-//
-// function FileBlock() {
-//     $('content-block').css({"display": "none"});
-//     $('.else').css({"display": "block"}).empty();
-//     $('.else').css({"display": "block"}).empty().append(`Здесь редактирование файлов`);
-//
-// }
+function get_lmenu() {
+    $.ajax({
+        url: '/ajax/get_menu.php/?m=lget',
+        type: 'POST',
+        dataType: 'json',
+        success: (res) => {
+            // console.log(res);
+            $('.l-menu .create-subpunkt-form>select').empty().append(`<option value="0" selected disabled>Выберите пункт</option>`);
+            for (let item of res) {
+                $('.l-menu .create-subpunkt-form>select').append(`<option value="${item['id']}">${item['name']}</option>`);
+                // console.log(item);
+            }
+        },
+        error: () => {
+            alert('Ошибка получения меню');
+        }
+    });
+}
+
+//Публикация пункта меню
+$('.main-menu .create-punkts-btn').on("click", function () {
+    $.ajax({
+        url: '/ajax/get_menu.php/?m=postmenu',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            name: $('.main-menu .punkt-name').val(),
+            href: $('.main-menu .punkt-href').val()
+        },
+        success: (res) => {
+            $('.main-menu .punkt-name').val('');
+            $('.main-menu .punkt-href').val('');
+            get_menu();
+        },
+        error: () => {
+            alert('Ошибка создания пункта меню');
+        }
+    });
+})
+//Публикация подпункта меню
+$('.main-menu .create-punkts-sub-btn').on("click", function () {
+    $.ajax({
+        url: '/ajax/get_menu.php/?m=postsubmenu',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            sub: $('.main-menu .main-subpunkt-sub').val(),
+            name: $('.main-menu .subpunkt-name').val(),
+            href: $('.main-menu .subpunkt-href').val()
+        },
+        success: (res) => {
+            if (res == 'Успешно создано') {
+                $('.main-menu .main-subpunkt-sub').val(0);
+                $('.main-menu .subpunkt-name').val('');
+                $('.main-menu .subpunkt-href').val('');
+            }
+            alert(res);
+
+        }
+        ,
+        error: () => {
+            alert('Ошибка создания пункта меню');
+        }
+    });
+});
+
+//Публикация пункта л меню
+$('.l-menu .create-punkts-btn').on("click", function () {
+    $.ajax({
+        url: '/ajax/get_menu.php/?m=lpostmenu',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            name: $('.l-menu .punkt-name').val(),
+            href: $('.l-menu .punkt-href').val()
+        },
+        success: (res) => {
+            $('.l-menu .punkt-name').val('');
+            $('.l-menu .punkt-href').val('');
+            get_lmenu();
+            alert(res);
+        },
+        error: () => {
+            alert('Ошибка создания пункта меню');
+        }
+    });
+})
+//Публикация подпункта л меню
+$('.l-menu .create-punkts-sub-btn').on("click", function () {
+    $.ajax({
+        url: '/ajax/get_menu.php/?m=lpostsubmenu',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            sub: $('.l-menu .main-subpunkt-sub').val(),
+            name: $('.l-menu .subpunkt-name').val(),
+            href: $('.l-menu .subpunkt-href').val()
+        },
+        success: (res) => {
+            if (res == 'Успешно создано') {
+                $('.l-menu .main-subpunkt-sub').val(0);
+                $('.l-menu .subpunkt-name').val('');
+                $('.l-menu .subpunkt-href').val('');
+            }
+            alert(res);
+        },
+        error: () => {
+            alert('Ошибка создания пункта меню');
+        }
+    });
+})
 
 //ДАЛЬШЕ СТАТЬИ
 
