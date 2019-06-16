@@ -184,6 +184,7 @@ header {
 header ul {
     list-style: none;
     position: relative;
+    margin: 0 auto;
 }
 
 header ul li {
@@ -523,14 +524,23 @@ span.numart, span.methart {
     justify-content: space-evenly;
 }
 
+.pagination > p {
+    text-align: center;
+}
+
 /*endregion*/
 /*region footer*/
 footer {
     width: 100%;
     background: #8a8a8a;
-    opacity: 0.2;
+    opacity: 0.6;
     transition: .3s;
     height: 25px;
+}
+
+footer > p {
+    text-align: center;
+    margin-top: 2px;
 }
 
 footer:hover {
@@ -550,3 +560,60 @@ footer:hover {
         background: url('../slider/1.jpg')
     }
 }
+
+.mobile, .mobilemenu {
+    display: none;
+    margin-top: 15px;
+}
+
+.openmobile {
+    padding: 5px 0 5px 5px;
+    background: #b13b3b;
+}
+
+@media screen and (max-width: 500px) {
+    .slider, #menuVertical, a#specialButton, .menu {
+        display: none;
+    }
+
+    .poisk {
+        margin-left: auto;
+    }
+
+    footer {
+        opacity: 1;
+    }
+
+    .mobile, .mobilemenu {
+        display: flex;
+        flex-direction: column;
+        background: indianred;
+        color: #fff;
+        width: 100%;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    .mobilemenu a, .mobilemenu a:visited, .mobilemenu a:active {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .mobilemenu * {
+        border-bottom: 1px solid #fff;
+        margin: 5px;
+    }
+
+    .mobile {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .punkts {
+        display: none;
+    }
+
+}
+

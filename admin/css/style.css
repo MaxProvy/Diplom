@@ -43,7 +43,7 @@ main {
 }
 
 .content-block {
-    width: 100%;
+    /*width: 100%;*/
     margin: 10px;
 }
 
@@ -75,7 +75,7 @@ main {
     margin-right: 15px;
 }
 
-input[type="text"],select {
+input[type="text"], select {
     border: 1px solid #a9a9a9;
     border-radius: 10px;
     padding: 5px;
@@ -108,7 +108,7 @@ button:hover {
 }
 
 .forms-control {
-    display: none;
+    display: block;
 }
 
 .editor-inputs {
@@ -144,4 +144,72 @@ button:hover {
     max-width: 720px;
     min-width: 420px;
     margin: 0 auto;
+}
+
+ul li {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    margin: 5px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+span.delete {
+    color: #b90000;
+}
+
+span.delete:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+p.list-text {
+    border-bottom: 3px solid;
+    width: 90%;
+}
+
+.login {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000000;
+}
+
+.login * {
+    visibility: visible !important;
+}
+
+.login input {
+    width: 200px;
+    border: 1px solid #a9a9a9;
+    border-radius: 10px;
+    padding: 5px;
+    outline-style: none;
+    font-size: 15pt;
+    margin-top: 5px !important;
+}
+
+.login form * {
+    margin: 0 auto;
+}
+
+.login input[type="submit"]:hover {
+    background: #fff;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
 }

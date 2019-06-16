@@ -3,40 +3,40 @@
         <?php
         require_once "config.php";
         $sql = "SELECT * FROM `l_menu`";
-        $sqll = "SELECT * FROM `l_menu_sub`";
 
         $items = array();
-        $subitems = array();
 
         $result = $db->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
             $items[] = $row;
         }
 
-        $result = $db->query($sqll);
-        while ($row = mysqli_fetch_assoc($result)) {
-            $subitems[] = $row;
-        }
-
         foreach ($items as $item) {
+            $id = $item['id'];
             $menuname = $item['name'];
             $href = $item['href'];
+//            echo "$id";
 
-            if (!empty($item['href'])) {
+
+            $sql = "SELECT COUNT(*) FROM `l_menu_sub` WHERE `sub_id`=$id";
+            $result = $db->query($sql);
+            $row = mysqli_fetch_row($result);
+            $total = $row[0]; // всего записей
+//            echo $total;
+            if ($total == 0) {
                 echo "<li><a href='$href'>$menuname</a></li>";
             } else {
+                $sql = "SELECT * FROM `l_menu_sub` WHERE `sub_id`=$id";
+                $result = $db->query($sql);
                 echo "<li><a>$menuname</a><ul>";
-
-                foreach ($subitems as $subitem) {
-
-                    if ($item['id'] == $subitem['sub_id']) {
-                        $subname = $subitem['name'];
-                        $href = $subitem['href'];
-                        echo "<li><a href='$href'>$subname</a></li>";
-                    }
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $subname = $row['name'];
+                    $href = $row['href'];
+                    echo "<li><a href='$href'>$subname</a></li>";
                 }
                 echo "</ul></li>";
             }
+
         }
         ?>
     </ul>

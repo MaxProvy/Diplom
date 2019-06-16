@@ -61,12 +61,15 @@
             $page -= 1;
             echo "<a href='?page=$page'>Предыдущая</a>";
             $page += 1;
-            echo "Текущая страница - $page";
+            echo "<p>Текущая страница - $page</p>";
 
             $page += 1;
 
             echo "<a href='?page=$page'>Следующая</a>";
             ?>
         </div>
+        <?php
+        include_once 'verticalMobile.php';
+        ?>
     </main>
 </div>

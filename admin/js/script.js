@@ -8,8 +8,8 @@ var page_ready = false;
 
 $(function () {
 
-    // ArticleCreate();
-    Menu();
+    ArticleCreate();
+    // Menu();
     get_menu();
     get_lmenu();
     $('.h-item').on('click', function () {
@@ -114,6 +114,12 @@ $('.main-menu .create-punkts-btn').on("click", function () {
             $('.main-menu .punkt-name').val('');
             $('.main-menu .punkt-href').val('');
             get_menu();
+            
+            alert(res);
+
+            GetData('menu');
+            Revol(data, '.admin-menu');
+
         },
         error: () => {
             alert('Ошибка создания пункта меню');
@@ -161,6 +167,10 @@ $('.l-menu .create-punkts-btn').on("click", function () {
             $('.l-menu .punkt-name').val('');
             $('.l-menu .punkt-href').val('');
             get_lmenu();
+
+            GetData('l_menu');
+            Revol(data, '.admin-l-menu');
+
             alert(res);
         },
         error: () => {
