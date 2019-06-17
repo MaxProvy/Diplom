@@ -3,10 +3,10 @@ require_once 'config.php';
 
 $id = $_POST['id'];
 $title = $_POST['title'];
-$des = $_POST['description'];
 $text = $_POST['text'];
 
-$sql = "UPDATE `page` SET `name` = '$title', `text` = '$text' WHERE `page`.`id` = '$id'";
+$sql = "INSERT INTO `page` (`date`, `name`, `text`) VALUES (CURRENT_TIMESTAMP, '$title', '$text')";
+//$sql = "UPDATE `page` SET `name` = '$title', `text` = '$text' WHERE `page`.`id` = '$id'";
 
 $result = $db->query($sql);
 

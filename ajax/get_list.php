@@ -3,7 +3,7 @@ require_once 'config.php';
 
 if (isset($_GET['m'])) {
     $m = $_GET['m'];
-    $sql = "SELECT `id`,`name` FROM `$m` WHERE `name` <> ''";
+    $sql = "SELECT `id`,`name` FROM `$m` WHERE `name` <> '' ORDER BY `id` DESC";
 
     $result = $db->query($sql);
 

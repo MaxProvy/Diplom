@@ -8,7 +8,7 @@
     $row = mysqli_fetch_row($result);
     $total = $row[0]; // всего записей
 
-    $kol = 15;  //количество записей для вывода
+    $kol = 16;  //количество записей для вывода
     if (isset($_GET['page']) AND $_GET['page'] > 0) {
         $page = $_GET['page'];
     } else $page = 1;

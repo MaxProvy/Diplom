@@ -114,7 +114,7 @@ $('.main-menu .create-punkts-btn').on("click", function () {
             $('.main-menu .punkt-name').val('');
             $('.main-menu .punkt-href').val('');
             get_menu();
-            
+
             alert(res);
 
             GetData('menu');
@@ -398,8 +398,17 @@ $('.send-page').on('click', function () {
         dataType: 'json',
         success: (res) => {
             alert(res);
-            window.location.href = '/admin';
+            $('.page-name-value').val('');
+            CKEDITOR.instances.editor2.setData('');
+            $('.page-material').val('');
+            $('.loaded-preview-pages').empty();
 
+            // $('.admin-page').empty();
+            GetData('page');
+            // $('.pages .forms-control').append($(`<ul class="admin-page"></ul>`));
+            Revol(data, '.admin-page');
+
+            // window.location.href = '/admin';
         },
         error: () => {
             alert('Ошибка создания статьи');

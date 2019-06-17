@@ -367,7 +367,7 @@ main {
 }
 
 .article-content * {
-    word-break: break-all;
+    word-break: unset;
 }
 
 article h2 {
@@ -499,6 +499,7 @@ span.numart, span.methart {
 
 .article-list-item a {
     color: #0380db;
+    margin-top: auto;
 }
 
 .article-list-item h3 {
@@ -569,6 +570,10 @@ footer:hover {
 .openmobile {
     padding: 5px 0 5px 5px;
     background: #b13b3b;
+}
+
+.article-content p {
+    margin-bottom: 15px;
 }
 
 @media screen and (max-width: 500px) {

@@ -1,48 +1,62 @@
 var data;
-var ar, pa, me, lm = false;
+// var ar, pa, me, lm = false;
 
 $(function () {
 
     GetData('article');
     $('.articles .forms-control').append($(`<ul class="admin-article"></ul>`));
     Revol(data, '.admin-article');
-    ar = true;
+    // ar = true;
 
-    $('.h-item').on('click', function () {
-        let classname = '.' + $('.active').attr('class').split(' ')[1];
-        if (classname === '.h-articles') {
-            if (!ar) {
-                GetData('article');
-                $('.articles .forms-control').append($(`<ul class="admin-article"></ul>`));
-                Revol(data, '.admin-article');
-            }
-        }
-        if (classname === '.h-pages') {
-            if (!pa) {
-                GetData('page');
-                $('.pages .forms-control').append($(`<ul class="admin-page"></ul>`));
-                Revol(data, '.admin-page');
-                pa = true;
-            }
-        }
-        if (classname === '.h-main-menu') {
-            if (!me) {
-                GetData('menu');
-                $('.main-menu .forms-control').append($(`<ul class="admin-menu"></ul>`));
-                Revol(data, '.admin-menu');
-                me = true;
-            }
-        }
-        if (classname === '.h-l-menu') {
-            if (!lm) {
-                GetData('l_menu');
-                $('.l-menu .forms-control').append($(`<ul class="admin-l-menu"></ul>`));
-                Revol(data, '.admin-l-menu');
-                lm = true;
-            }
-        }
-    })
+    GetData('page');
+    $('.pages .forms-control').append($(`<ul class="admin-page"></ul>`));
+    Revol(data, '.admin-page');
+    // pa = true;
 
+    GetData('menu');
+    $('.main-menu .forms-control').append($(`<ul class="admin-menu"></ul>`));
+    Revol(data, '.admin-menu');
+    // me = true;
+
+    GetData('l_menu');
+    $('.l-menu .forms-control').append($(`<ul class="admin-l-menu"></ul>`));
+    Revol(data, '.admin-l-menu');
+    // lm = true;
+
+    // $('.h-item').on('click', function () {
+    //     let classname = '.' + $('.active').attr('class').split(' ')[1];
+    //     if (classname === '.h-articles') {
+    //         if (!ar) {
+    //             GetData('article');
+    //             $('.articles .forms-control').append($(`<ul class="admin-article"></ul>`));
+    //             Revol(data, '.admin-article');
+    //         }
+    //     }
+    //     if (classname === '.h-pages') {
+    //         if (!pa) {
+    //             GetData('page');
+    //             $('.pages .forms-control').append($(`<ul class="admin-page"></ul>`));
+    //             Revol(data, '.admin-page');
+    //             pa = true;
+    //         }
+    //     }
+    //     if (classname === '.h-main-menu') {
+    //         if (!me) {
+    //             GetData('menu');
+    //             $('.main-menu .forms-control').append($(`<ul class="admin-menu"></ul>`));
+    //             Revol(data, '.admin-menu');
+    //             me = true;
+    //         }
+    //     }
+    //     if (classname === '.h-l-menu') {
+    //         if (!lm) {
+    //             GetData('l_menu');
+    //             $('.l-menu .forms-control').append($(`<ul class="admin-l-menu"></ul>`));
+    //             Revol(data, '.admin-l-menu');
+    //             lm = true;
+    //         }
+    //     }
+    // })
 
 })
 
@@ -105,7 +119,9 @@ $('body').on('click', '.pages .delete', function () {
 })
 $('body').on('click', '.main-menu .delete', function () {
     Remove($(this).data('id'), 'menu', $(this));
+    get_menu();
 })
 $('body').on('click', '.l-menu .delete', function () {
     Remove($(this).data('id'), 'l_menu', $(this));
+    get_lmenu();
 })
