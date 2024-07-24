@@ -12,7 +12,7 @@
 
 1. **Клонирование репозитория**
     ```sh
-    git clone https://github.com/tashckinov/simple-cms.git
+    git clone https://github.com/tashckinov/SchoolCMS.git
     ```
 2. **Создание базы данных**
     - Импортируйте файл `politek.sql` в вашу базу данных MySQL.
